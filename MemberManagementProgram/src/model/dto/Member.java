@@ -36,13 +36,7 @@ public class Member {
 		/** 등급, 필수, 시스템 입력 */
 		public String grade; // 일반(G) / 우수(S) / 관리자(A)
 
-		// 선택
-		/** 마일리지, 선택, 시스템 입력 */
-		public int mileage;	// 일반회원 - 100,000이상이면 우수회원으로 등업
 
-		/** 담당자, 선택, 시스템 입력 */
-		public String manager; // 우수회원에게 관리자 배정, can be NULL
-		
 		/** 기본 생성자 */
 		public Member() {}
 
