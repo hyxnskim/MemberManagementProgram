@@ -1,5 +1,7 @@
 package model.service;
 
+import java.util.ArrayList;
+
 import model.dto.Member;
 
 /**
@@ -71,18 +73,18 @@ public abstract class MemberServiceAbstract {
 	 * </pre>
 	 * @return 전체 멤버 객체 배열
 	 */
-	public abstract Member[] getMember();
+	public abstract ArrayList<Member> getMember();
 	
 	/**
 	 * <pre>
 	 * 회원정보 전체변경
 	 * -- 메서드명 : setMember()
 	 * -- 매개변수 : Member
-	 * -- 반환타입 : void / 오류 발생시 메세지 처리
+	 * -- 반환타입 : boolean
 	 * </pre>
 	 * @param dto 정보 변경할 회원 객체
 	 */
-	public abstract void setMember(Member dto);
+	public abstract boolean setMember(Member dto);
 	
 	/**
 	 * <pre>
@@ -100,15 +102,15 @@ public abstract class MemberServiceAbstract {
 	
 	/**
 	 * <pre>
-	 * 회원탈퇴 - count--
+	 * 회원탈퇴
 	 * -- 메서드명 : removeMember()
 	 * -- 매개변수 : 아이디, 비밀번호
-	 * -- 반환타입 : void
+	 * -- 반환타입 : Member
 	 * </pre>
 	 * @param memberId 탈퇴할 회원 아이디
 	 * @param memberPw 탈퇴할 회원 비밀번호
 	 */
-	public abstract void removeMember(String memberId, String memberPw);
+	public abstract Member removeMember(String memberId, String memberPw);
 	
 	/**
 	 * <pre>
@@ -119,4 +121,44 @@ public abstract class MemberServiceAbstract {
 	 * </pre>
 	 */
 	public abstract void removeMember();
+	
+	/**
+	 * <pre>
+	 * 우수회원 등업
+	 * -- 메서드명 : gradeUp()
+	 * -- 매개변수 : 회원 객체, 담당자
+	 * -- 반환타입 : boolean
+	 * </pre>
+	 */
+	public abstract boolean gradeUp(Member dto, String manager);
+	
+	/**
+	 * <pre>
+	 * 회원 로그인
+	 * -- 메서드명 : login()
+	 * -- 매개변수 : 회원 아이디, 비밀번호
+	 * -- 반환타입 : boolean
+	 * </pre>
+	 */
+	public abstract boolean login(String memberId, String memberPw);
+	
+	/**
+	 * <pre>
+	 * 회원 아이디 찾기
+	 * -- 메서드명 : findId()
+	 * -- 매개변수 : 이름, 휴대폰 번호 또는 이메일 주소를 저장하는 문자열
+	 * -- 반환타입 : String
+	 * </pre>
+	 */
+	public abstract String findId(String name, String str);
+	
+	/**
+	 * <pre>
+	 * 회원 비밀번호 찾기
+	 * -- 메서드명 : findPw()
+	 * -- 매개변수 : 아이디, 휴대폰 번호 또는 이메일 주소를 저장하는 문자열
+	 * -- 반환타입 : boolean
+	 * </pre>
+	 */
+	public abstract boolean findPw(String memberId, String str);
 }

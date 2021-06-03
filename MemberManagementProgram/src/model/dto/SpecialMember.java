@@ -31,9 +31,7 @@ public class SpecialMember extends Member {
 		setName(name);
 		setMobile(mobile);
 		setEmail(email);
-
 		setGrade("S");
-		setEntryDate("2021-05-26");
 	}
 
 	/**
