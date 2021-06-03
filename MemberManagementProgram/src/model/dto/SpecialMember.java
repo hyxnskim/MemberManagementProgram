@@ -5,7 +5,7 @@ package model.dto;
 
 /**
  * 우수 회원 도메인 클래스
- * @author hskim
+ * @author Hyunsoo Kim
  * @ version ver.1.0
  * @ since jdk1.8
  */
