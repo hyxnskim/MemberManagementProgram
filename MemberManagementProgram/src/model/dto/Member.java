@@ -24,10 +24,10 @@ public class Member {
 		public String name;
 
 		/** 휴대폰, 필수 */
-		public String mobile;
+		public String mobile; // unique value
 
 		/** 이메일, 필수 */
-		public String email;
+		public String email; // unique value
 
 		// 필수 - 시스템
 		/** 가입일, 필수, 시스템 입력 */
@@ -81,14 +81,31 @@ public class Member {
 		}
 
 		/**
+		 * 아이디 검증규칙 :
+		 * -- 최소 6자리, 최대 30자리
+		 * -- 문자열 길이 메서드 : {@link String#length}
 		 * @param memberId the memberId to set
 		 */
-		public void setMemberId(String memberId) {	// 중복 검사 추가하고싶은데
-			/*
-			 * if(id 중복) 에러메세지 출력
-			 * else this.memberId = memberId;
-			 */
-			this.memberId = memberId;
+		public void setMemberId(String memberId) {
+			boolean result = isMemberId(memberId);
+			if(result) {
+				this.memberId = memberId;
+			} else {
+				System.out.println("[오류] 아이디는 6~30자리 이내로 입력하세요");
+			}
+		}
+		
+		/**
+		 * 아이디 검증 메서드
+		 * @param memberId 아이디
+		 * @return 아이디 길이가 6~30자리 이내면 true, 그렇지 않으면 false
+		 */
+		private boolean isMemberId(String memberId) {
+			if(memberId.length() >= 6 && memberId.length() <= 30) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		/**
@@ -99,10 +116,27 @@ public class Member {
 		}
 
 		/**
+		 * 비밀번호 검증규칙 :
+		 * -- 최소 6자리, 최대 20자리
 		 * @param memberPw the memberPw to set
 		 */
 		public void setMemberPw(String memberPw) {
-			this.memberPw = memberPw;
+			boolean result = isMemberPw(memberPw);
+			if(result) this.memberPw = memberPw;
+			else System.out.println("[오류] 비밀번호는 6~30자리 이내로 입력하세요");
+		}
+		
+		/**
+		 * 비밀번호 검증 메서드
+		 * @param memberPw 비밀번호
+		 * @return 비밀번호 길이가 6~20자리 이내면 true, 그렇지 않으면 false
+		 */
+		private boolean isMemberPw(String memberPw) {
+			if(memberPw.length() >= 6 && memberPw.length() <= 20) {
+				return true;
+			} else {
+				return false;
+			}
 		}
 
 		/**
@@ -169,10 +203,22 @@ public class Member {
 		}
 
 		/**
+		 * 등급 검증 규칙
+		 * -- G 또는 S 또는 A
 		 * @param grade the grade to set
 		 */
 		public void setGrade(String grade) {
-			this.grade = grade;
+			if(isGrade(grade)) this.grade = grade;
+			else System.out.println("[오류] 등급은 G, S, A 중 하나입니다.");
+		}
+		
+		/**
+		 * 등급 검증 메서드
+		 * @param grade 변경 등급
+		 * @return 등급이 G, S, A 중 하나이면 true, 그렇지 않으면 false
+		 */
+		private boolean isGrade(String grade) {
+			return (grade.equals("G") || grade.equals("S") || grade.equals("A"));
 		}
 
 		@Override

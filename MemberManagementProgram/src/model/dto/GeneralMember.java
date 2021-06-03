@@ -61,10 +61,27 @@ public class GeneralMember extends Member{
 	}
 
 	/**
+	 * 마일리지 검증 규칙
+	 * -- 0 이상 100000 이하
 	 * @param mileage the mileage to set
 	 */
 	public void setMileage(int mileage) {
-		this.mileage = mileage;
+		boolean result = isMileage(mileage);
+		if(result) this.mileage = mileage;
+		else System.out.println("[오류] 마일리지는 0~100,000 이내입니다");
+	}
+	
+	/**
+	 * 마일리지 검증 메서드
+	 * @param mileage 마일리지
+	 * @return 마일리지가 0~100000 사이면 true, 그렇지 않으면 false
+	 */
+	private boolean isMileage(int mileage) {
+		if(mileage >= 0 && mileage <= 100000) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	@Override
