@@ -9,7 +9,7 @@ import java.util.Random;
 
 /**
  * <pre>
- * ¸ğµç Å¬·¡½º¿¡¼­ »ç¿ëÇÏ±â À§ÇÑ °øÅë ¸Ş¼­µå ±¸Çö Å¬·¡½º
+ * ëª¨ë“  í´ë˜ìŠ¤ì—ì„œ ì‚¬ìš©í•˜ê¸° ìœ„í•œ ê³µí†µ ë©”ì„œë“œ êµ¬í˜„ í´ë˜ìŠ¤
  * </pre>
  * @author Hyunsoo Kim
  * @version ver.1.0
@@ -19,10 +19,10 @@ public class Utility {
 
 	/**
 	 * <pre>
-	 * ÇöÀç ³¯Â¥ ¹İÈ¯ ¸Ş¼­µå
+	 * í˜„ì¬ ë‚ ì§œ ë°˜í™˜ ë©”ì„œë“œ
 	 * </pre>
 	 * @see java.util.SimpleDateFormat
-	 * @return ÇöÀç³¯Â¥ ¹®ÀÚ¿­
+	 * @return í˜„ì¬ë‚ ì§œ ë¬¸ìì—´
 	 */
 	public static String getCurrentDate() {
 		return new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA).format(new Date());
@@ -30,11 +30,11 @@ public class Utility {
 	
 	/**
 	 * <pre>
-	 * ¾Æ±Ô¸ÕÆ®·Î ¹ŞÀº Á¤¼öÇü ¼ıÀÚ¸¦ Ãµ´ÜÀ§¸¶´Ù ÄÄ¸¶Ç¥±â ¹®ÀÚ¿­ ¹İÈ¯ ¸Ş¼­µå
+	 * ì•„ê·œë¨¼íŠ¸ë¡œ ë°›ì€ ì •ìˆ˜í˜• ìˆ«ìë¥¼ ì²œë‹¨ìœ„ë§ˆë‹¤ ì»´ë§ˆí‘œê¸° ë¬¸ìì—´ ë°˜í™˜ ë©”ì„œë“œ
 	 * </pre>
 	 * @see java.text.NumberFormat
-	 * @param num ÀÔ·Â¹ŞÀº Á¤¼ö
-	 * @return ÄÄ¸¶°¡ Ç¥±âµÈ ¹®ÀÚ¿­
+	 * @param num ì…ë ¥ë°›ì€ ì •ìˆ˜
+	 * @return ì»´ë§ˆê°€ í‘œê¸°ëœ ë¬¸ìì—´
 	 */
 	public static String putComma(int num) {
 		NumberFormat nf = NumberFormat.getInstance();
@@ -43,11 +43,11 @@ public class Utility {
 	
 	/**
 	 * <pre>
-	 * ¾Æ±Ô¸ÕÆ®·Î ¹®ÀÚ¿­, ±æÀÌ¸¦ ¹Ş¾Æ¼­ ÇØ´ç ÀÚ¸®¼ö¸¸ º¸¿©ÁÖ°í ³ª¸ÓÁö´Â * ±âÈ£·Î ´ëÃ¼ º¯È¯ÇÑ ¹®ÀÚ¿­ ¹İÈ¯ ¸Ş¼­µå
+	 * ì•„ê·œë¨¼íŠ¸ë¡œ ë¬¸ìì—´, ê¸¸ì´ë¥¼ ë°›ì•„ì„œ í•´ë‹¹ ìë¦¬ìˆ˜ë§Œ ë³´ì—¬ì£¼ê³  ë‚˜ë¨¸ì§€ëŠ” * ê¸°í˜¸ë¡œ ëŒ€ì²´ ë³€í™˜í•œ ë¬¸ìì—´ ë°˜í™˜ ë©”ì„œë“œ
 	 * </pre>
-	 * @param str ÀÔ·Â¹ŞÀº ¹®ÀÚ¿­
-	 * @param len º¸¿©ÁÙ ÀÚ¸®¼ö
-	 * @return ¾ÕÀÇ len ÀÚ¸® Á¦¿Ü *·Î ´ëÃ¼ÇÑ ¹®ÀÚ¿­
+	 * @param str ì…ë ¥ë°›ì€ ë¬¸ìì—´
+	 * @param len ë³´ì—¬ì¤„ ìë¦¬ìˆ˜
+	 * @return ì•ì˜ len ìë¦¬ ì œì™¸ *ë¡œ ëŒ€ì²´í•œ ë¬¸ìì—´
 	 */
 	public static String alterString(String str, int len) {
 		String res = new String("");
@@ -60,11 +60,11 @@ public class Utility {
 	
 	/**
 	 * <pre>
-	 * 0 ~ (num-1) »çÀÌÀÇ ÀÓÀÇÀÇ ¼ıÀÚ ÃßÃâÇÏ´Â ¸Ş¼­µå
+	 * 0 ~ (num-1) ì‚¬ì´ì˜ ì„ì˜ì˜ ìˆ«ì ì¶”ì¶œí•˜ëŠ” ë©”ì„œë“œ
 	 * </pre>
 	 * @see java.util.Random#nextInt(10) 
-	 * @param num ÃßÃâÇÒ ³­¼öÀÇ ¹üÀ§
-	 * @return ÃßÃâµÈ Á¤¼ö
+	 * @param num ì¶”ì¶œí•  ë‚œìˆ˜ì˜ ë²”ìœ„
+	 * @return ì¶”ì¶œëœ ì •ìˆ˜
 	 */
 	public static int getRandomNo(int num) {
 		Random extractNo = new Random((long)(Math.random() * System.nanoTime()));
@@ -74,11 +74,11 @@ public class Utility {
 
 	/**
 	 * <pre>
-	 * º¸¾È¹®ÀÚ ¹ß±Ş ¸Ş¼­µå
+	 * ë³´ì•ˆë¬¸ì ë°œê¸‰ ë©”ì„œë“œ
 	 * </pre>
 	 * @see java.lang.StringBuilder#append()
-	 * @param len ¹®ÀÚ¿­ÀÇ ±æÀÌ
-	 * @return lenÀÚ¸® º¸¾È¹®ÀÚ
+	 * @param len ë¬¸ìì—´ì˜ ê¸¸ì´
+	 * @return lenìë¦¬ ë³´ì•ˆë¬¸ì
 	}
 	 */
 	public static String secureNum(int len) {

@@ -2,7 +2,7 @@ package view;
 
 /**
  * <pre>
- * È¸¿ø °ü¸® ÇÁ·Î±×·¥ ½ÃÀÛ Å¬·¡½º
+ * íšŒì› ê´€ë¦¬ í”„ë¡œê·¸ë¨ ì‹œì‘ í´ë˜ìŠ¤
  *  * </pre>
  * @author Hyunsoo Kim
  * @version ver.1.0
@@ -12,8 +12,8 @@ package view;
 public class Test {
 
 	/**
-	 * È¸¿ø °ü¸® ÇÁ·Î±×·¥ ½ÃÀÛ ¸Ş¼­µå
-	 * @param args ½ÃÀÛ½Ã Àü´Ş¹ŞÀº String Å¸ÀÔ ¹è¿­ Á¤º¸
+	 * íšŒì› ê´€ë¦¬ í”„ë¡œê·¸ë¨ ì‹œì‘ ë©”ì„œë“œ
+	 * @param args ì‹œì‘ì‹œ ì „ë‹¬ë°›ì€ String íƒ€ì… ë°°ì—´ ì •ë³´
 	 */
 	public static void main(String[] args) {
 	}
