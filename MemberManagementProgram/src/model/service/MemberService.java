@@ -10,7 +10,7 @@ import util.Utility;
 
 /**
  * <pre>
- * È¸¿ø °ü¸® À§ÇÑ ¸Ş¼­µå ±¸Çö
+ * íšŒì› ê´€ë¦¬ ìœ„í•œ ë©”ì„œë“œ êµ¬í˜„
  * </pre> 
  * @author Hyunsoo Kim
  * @version ver.1.0
@@ -18,19 +18,19 @@ import util.Utility;
  */
 
 public class MemberService extends MemberServiceAbstract{
-	/** È¸¿øµéÀ» ÀúÀå/°ü¸®ÇÏ±â À§ÇÑ ÀÚ·á ÀúÀå±¸Á¶ */
+	/** íšŒì›ë“¤ì„ ì €ì¥/ê´€ë¦¬í•˜ê¸° ìœ„í•œ ìë£Œ ì €ì¥êµ¬ì¡° */
 	private ArrayList<Member> list = new ArrayList<Member>();
 	
-	/** ±âº»»ı¼ºÀÚ : ÃÊ±âÈ­ È¸¿ø µî·Ï ¼öÇà */
+	/** ê¸°ë³¸ìƒì„±ì : ì´ˆê¸°í™” íšŒì› ë“±ë¡ ìˆ˜í–‰ */
 	public MemberService() {
-		System.out.println("ÃÊ±âÈ­È¸¿ø µî·ÏÀÛ¾÷ÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù : " + initMember());
+		System.out.println("ï¿½Ê±ï¿½È­È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ : " + initMember());
 	}
 	
 	/** 
 	 * <pre>
-	 * ÇöÀç µî·Ï ÀÎ¿ø¼ö Á¶È¸
+	 * í˜„ì¬ ë“±ë¡ ì¸ì›ìˆ˜ ì¡°íšŒ
 	 * </pre>
-	 * @return ÇöÀç µî·Ï ÀÎ¿ø¼ö
+	 * @return í˜„ì¬ ë“±ë¡ ì¸ì›ìˆ˜
 	 */
 	public int getCount() {
 		return list.size();
@@ -38,10 +38,10 @@ public class MemberService extends MemberServiceAbstract{
 	
 	/**
 	 * <pre>
-	 * ¾ÆÀÌµğ Áßº¹ Ã¼Å© ¸Ş¼­µå
+	 * ì•„ì´ë”” ì¤‘ë³µ ì²´í¬ ë©”ì„œë“œ
 	 * </pre>
-	 * @param memberId ¾ÆÀÌµğ
-	 * @return Á¸Àç½Ã¿¡ ÀúÀåÀ§Ä¡ ¹øÈ£, Á¸ÀçÇÏÁö ¾ÊÀ¸¸é -1
+	 * @param memberId ì•„ì´ë””
+	 * @return ì¡´ì¬ì‹œì— ì €ì¥ìœ„ì¹˜ ë²ˆí˜¸, ì¡´ì¬í•˜ì§€ ì•Šìœ¼ë©´ -1
 	 */
 	public int exist(String memberId) {
 		for(int i = 0; i < getCount(); i++) {
@@ -52,10 +52,10 @@ public class MemberService extends MemberServiceAbstract{
 	
 	/**
 	 * <pre>
-	 * ÈŞ´ëÆù ¹øÈ£ Áßº¹ Ã¼Å© ¸Ş¼­µå
+	 * íœ´ëŒ€í° ë²ˆí˜¸ ì¤‘ë³µ ì²´í¬ ë©”ì„œë“œ
 	 * </pre>
-	 * @param mobile Ã¼Å© ´ë»ó ÈŞ´ëÆù ¹øÈ£
-	 * @return Á¸Àç½Ã¿¡ ÀúÀåÀ§Ä¡ ¹øÈ£, Á¸ÀçÇÏÁö ¾ÊÀ¸¸é -1
+	 * @param mobile ì²´í¬ ëŒ€ìƒ íœ´ëŒ€í° ë²ˆí˜¸
+	 * @return ì¡´ì¬ì‹œì— ì €ì¥ìœ„ì¹˜ ë²ˆí˜¸, ì¡´ì¬í•˜ì§€ ì•Šìœ¼ë©´ -1
 	 */
 	public int existMobile(String mobile) {
 		for(int i = 0; i < getCount(); i++) {
@@ -66,10 +66,10 @@ public class MemberService extends MemberServiceAbstract{
 	
 	/**
 	 * <pre>
-	 * ÀÌ¸ŞÀÏ ÁÖ¼Ò Áßº¹ Ã¼Å© ¸Ş¼­µå
+	 * ì´ë©”ì¼ ì£¼ì†Œ ì¤‘ë³µ ì²´í¬ ë©”ì„œë“œ
 	 * </pre>
-	 * @param email Ã¼Å© ´ë»ó ÀÌ¸ŞÀÏ ÁÖ¼Ò
-	 * @return Á¸Àç½Ã¿¡ ÀúÀåÀ§Ä¡ ¹øÈ£, Á¸ÀçÇÏÁö ¾ÊÀ¸¸é -1
+	 * @param email ì²´í¬ ëŒ€ìƒ ì´ë©”ì¼ ì£¼ì†Œ
+	 * @return ì¡´ì¬ì‹œì— ì €ì¥ìœ„ì¹˜ ë²ˆí˜¸, ì¡´ì¬í•˜ì§€ ì•Šìœ¼ë©´ -1
 	 */
 	public int existEmail(String email) {
 		for(int i = 0; i < getCount(); i++) {
@@ -81,17 +81,17 @@ public class MemberService extends MemberServiceAbstract{
 	
 	/**
 	 * <pre>
-	 * Å×½ºÆ®¸¦ À§ÇÑ È¸¿ø ÃÊ±âÈ­ µî·Ï ¸Ş¼­µå
+	 * í…ŒìŠ¤íŠ¸ë¥¼ ìœ„í•œ íšŒì› ì´ˆê¸°í™” ë“±ë¡ ë©”ì„œë“œ
 	 * </pre>
-	 * @return ÃÊ±âÈ­ È¸¿øµî·Ï ÀÎ¿ø¼ö
+	 * @return ì´ˆê¸°í™” íšŒì›ë“±ë¡ ì¸ì›ìˆ˜
 	 */
 	public int initMember(){
 		
-		Member dto1 = new GeneralMember("user01", "password01", "È«±æµ¿", "01012341000", "user01@work.com", "2020-12-15", "G", 50000);
-		Member dto2 = new GeneralMember("user02", "password02", "°­°¨Âù", "01012342000", "user02@work.com", "2021-01-05", "G", 950000);
-		Member dto3 = new SpecialMember("user03", "password03", "ÀÌ¼ø½Å", "01012343000", "user03@work.com", "2020-11-15", "S", "°­µ¿¿ø");
-		Member dto4 = new SpecialMember("user04", "password04", "±èÀ¯½Å", "01012344000", "user04@work.com", "2021-01-05", "S", "±èÇÏ¸°");
-		Member dto5 = new AdminMember("administrator", "admin1004", "À¯°ü¼ø", "01012345000", "administrator@work.com", "2020-04-01", "A", "¼±ÀÓ");
+		Member dto1 = new GeneralMember("user01", "password01", "È«ï¿½æµ¿", "01012341000", "user01@work.com", "2020-12-15", "G", 50000);
+		Member dto2 = new GeneralMember("user02", "password02", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "01012342000", "user02@work.com", "2021-01-05", "G", 950000);
+		Member dto3 = new SpecialMember("user03", "password03", "ï¿½Ì¼ï¿½ï¿½ï¿½", "01012343000", "user03@work.com", "2020-11-15", "S", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		Member dto4 = new SpecialMember("user04", "password04", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "01012344000", "user04@work.com", "2021-01-05", "S", "ï¿½ï¿½ï¿½Ï¸ï¿½");
+		Member dto5 = new AdminMember("administrator", "admin1004", "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "01012345000", "administrator@work.com", "2020-04-01", "A", "ï¿½ï¿½ï¿½ï¿½");
 		addMember(dto1);
 		addMember(dto2);
 		addMember(dto3);
@@ -100,30 +100,31 @@ public class MemberService extends MemberServiceAbstract{
 		
 		return getCount();
 	}
+	
 	/**
 	 * <pre>
-	 * È¸¿ø µî·Ï ¸Ş¼­µå
+	 * íšŒì› ë“±ë¡ ë©”ì„œë“œ
 	 * <pre>
-	 * @param dto µî·Ï È¸¿ø
+	 * @param dto ë“±ë¡ íšŒì›
 	 */
 	public void addMember(Member dto) {
 		if(exist(dto.getMemberId()) == -1) {
 			list.add(dto);
 		}
 		else {
-			System.out.println("[¿À·ù] " + dto.getMemberId() + "´Â Áßº¹µÈ ¾ÆÀÌµğÀÔ´Ï´Ù");
+			System.out.println("[ï¿½ï¿½ï¿½ï¿½] " + dto.getMemberId() + "ï¿½ï¿½ ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½Ô´Ï´ï¿½");
 		}
 	}
 	
 	/**
 	 * <pre>
-	 * È¸¿ø µî·Ï ¸Ş¼­µå
+	 * íšŒì› ë“±ë¡ ë©”ì„œë“œ
 	 * <pre>
-	 * @param memberId È¸¿ø ¾ÆÀÌµğ
-	 * @param memberPw È¸¿ø ºñ¹Ğ¹øÈ£
-	 * @param name ÀÌ¸§
-	 * @param mobile ÈŞ´ëÆù
-	 * @param email ÀÌ¸ŞÀÏ
+	 * @param memberId íšŒì› ì•„ì´ë””
+	 * @param memberPw íšŒì› ë¹„ë°€ë²ˆí˜¸
+	 * @param name ì´ë¦„
+	 * @param mobile íœ´ëŒ€í°
+	 * @param email ì´ë©”ì¼
 	 */
 	public void addMember (String memberId, String memberPw, String name, String mobile, String email){
 	
@@ -131,9 +132,9 @@ public class MemberService extends MemberServiceAbstract{
 		int idxEmail = existEmail(email);
 		
 		if(idxMobile >= 0) {
-			System.out.println("[¿À·ù] " + mobile + "Àº ÀÌ¹Ì µî·ÏµÈ ÈŞ´ëÆù ¹øÈ£ÀÔ´Ï´Ù");
+			System.out.println("[ï¿½ï¿½ï¿½ï¿½] " + mobile + "ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½Ş´ï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½Ô´Ï´ï¿½");
 		} else if(idxEmail >= 0) {
-			System.out.println("[¿À·ù] " + email + "Àº ÀÌ¹Ì µî·ÏµÈ ÀÌ¸ŞÀÏ ÁÖ¼ÒÀÔ´Ï´Ù.");
+			System.out.println("[ï¿½ï¿½ï¿½ï¿½] " + email + "ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½Ïµï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½Ô´Ï´ï¿½.");
 		} else {
 			GeneralMember dto = new GeneralMember(memberId, memberPw, name, mobile, email);
 			dto.setGrade("G");
@@ -145,7 +146,7 @@ public class MemberService extends MemberServiceAbstract{
 	
 	/**
 	 * <pre>
-	 * ÀüÃ¼ È¸¿ø Á¤º¸ Á¶È¸ ¸Ş¼­µå
+	 * ì „ì²´ íšŒì› ì •ë³´ ì¡°íšŒ ë©”ì„œë“œ
 	 * </pre>
 	 */
 	public ArrayList<Member> getMember() {
@@ -154,10 +155,10 @@ public class MemberService extends MemberServiceAbstract{
 	
 	/**
 	 * <pre>
-	 * Æ¯Á¤ È¸¿ø Á¤º¸ Á¶È¸ ¸Ş¼­µå
+	 * íŠ¹ì • íšŒì› ì •ë³´ ì¡°íšŒ ë©”ì„œë“œ
 	 * </pre>
-	 * @param memberId Á¶È¸ÇÒ È¸¿ø ¾ÆÀÌµğ
-	 * @return Á¶È¸ÇÒ È¸¿ø °´Ã¼
+	 * @param memberId ì¡°íšŒí•  íšŒì› ì•„ì´ë””
+	 * @return ì¡°íšŒí•  íšŒì› ê°ì²´
 	 */
 	public Member getMember(String memberId) {
 		int idx = exist(memberId);
@@ -165,36 +166,36 @@ public class MemberService extends MemberServiceAbstract{
 			return list.get(idx);
 		}
 		
-		System.out.println("[¿À·ù] " + memberId + "´Â Á¸ÀçÇÏÁö ¾Ê´Â ¾ÆÀÌµğÀÔ´Ï´Ù");
+		System.out.println("[ï¿½ï¿½ï¿½ï¿½] " + memberId + "ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½Ô´Ï´ï¿½");
 		return null; 
 	}
 
 	/**
 	 * <pre>
-	 * È¸¿øÁ¤º¸ ÀüÃ¼ º¯°æ - »ç¿ëÀÚ ÀÔ·Â ¹Şµµ·Ï ¼öÁ¤ ÇÊ¿äÇÔ
+	 * íšŒì›ì •ë³´ ì „ì²´ ë³€ê²½ - ì‚¬ìš©ì ì…ë ¥ ë°›ë„ë¡ ìˆ˜ì • í•„ìš”í•¨
 	 * </pre>
-	 * @param dto º¯°æÇÒ È¸¿ø °´Ã¼
-	 * @return ¼º°ø ¿©ºÎ
+	 * @param dto ë³€ê²½í•  íšŒì› ê°ì²´
+	 * @return ì„±ê³µ ì—¬ë¶€
 	 */
 	public boolean setMember(Member dto) {
 		int idx = exist(dto.getMemberId());
 		
 		if(idx > -1) {
 			list.set(idx, dto);
-			System.out.println("¼º°øÀûÀ¸·Î º¯°æµÇ¾ú½À´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			return true;	
 		}
-		System.out.println("[¿À·ù] µî·ÏµÇÁö ¾ÊÀº È¸¿øÀÔ´Ï´Ù.");
+		System.out.println("[ï¿½ï¿½ï¿½ï¿½] ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 		return false;
 	}
 	
 	/**
 	 * <pre>
-	 * ÀÔ·Â È¸¿ø Á¤º¸ È®ÀÎ ¸Ş¼­µå
+	 * ì…ë ¥ íšŒì› ì •ë³´ í™•ì¸ ë©”ì„œë“œ
 	 * </pre>
-	 * @param memberId ¾ÆÀÌµğ
-	 * @param memberPw ºñ¹Ğ¹øÈ£
-	 * @return ¼º°ø½Ã ¹è¿­ ¿ä¼Ò ÀÎµ¦½º, ±×·¸Áö ¾ÊÀ¸¸é -1
+	 * @param memberId ì•„ì´ë””
+	 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+	 * @return ì„±ê³µì‹œ ë°°ì—´ ìš”ì†Œ ì¸ë±ìŠ¤, ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ -1
 	 */
 	public int verifyMember(String memberId, String memberPw) {
 		int idx = exist(memberId);
@@ -206,47 +207,47 @@ public class MemberService extends MemberServiceAbstract{
 	
 	/**
 	 * <pre>
-	 * È¸¿ø ºñ¹Ğ¹øÈ£ º¯°æ
+	 * íšŒì› ë¹„ë°€ë²ˆí˜¸ ë³€ê²½
 	 * </pre>
-	 * @param memberId ¾ÆÀÌµğ
-	 * @param memberPw ºñ¹Ğ¹øÈ£
-	 * @param newPw º¯°æ ºñ¹Ğ¹øÈ£
-	 * @return º¯°æ ¼º°ø ¿©ºÎ
+	 * @param memberId ì•„ì´ë””
+	 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+	 * @param newPw ë³€ê²½ ë¹„ë°€ë²ˆí˜¸
+	 * @return ë³€ê²½ ì„±ê³µ ì—¬ë¶€
 	 */
 	public boolean setMemberPw(String memberId, String memberPw, String newPw) {
 		int idx = verifyMember(memberId, memberPw);
 		if(idx >= 0) {
-			System.out.println("ºñ¹Ğ¹øÈ£°¡ ¼º°øÀûÀ¸·Î º¯°æµÇ¾ú½À´Ï´Ù.");
+			System.out.println("ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			list.get(idx).setMemberPw(newPw);
 			return true;
 		}
-		System.out.println("[¿À·ù] Àß¸øµÈ È¸¿ø Á¤º¸ÀÔ´Ï´Ù." );
+		System.out.println("[ï¿½ï¿½ï¿½ï¿½] ï¿½ß¸ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½." );
 		return false;
 	}
 
 	/**
 	 * <pre>
-	 * È¸¿ø Å»Åğ ¸Ş¼­µå
+	 * íšŒì› íƒˆí‡´ ë©”ì„œë“œ
 	 * </pre>
-	 * @param memberId ¾ÆÀÌµğ
-	 * @param memberPw ºñ¹Ğ¹øÈ£
-	 * @return ¼º°ø½Ã Å»ÅğÈ¸¿ø ±âÁ¸ Á¤º¸, ½ÇÆĞ½Ã null
+	 * @param memberId ì•„ì´ë””
+	 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+	 * @return ì„±ê³µì‹œ íƒˆí‡´íšŒì› ê¸°ì¡´ ì •ë³´, ì‹¤íŒ¨ì‹œ null
 	 */
 	public Member removeMember(String memberId, String memberPw) {
 		
 		int idx = verifyMember(memberId, memberPw);
 		if(idx >= 0) {
-			System.out.println("Á¤»óÀûÀ¸·Î Å»ÅğµÇ¾ú½À´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å»ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 			Member dto = list.remove(idx);
 			return dto;
 		}
-		System.out.println("[¿À·ù] Àß¸øµÈ È¸¿ø Á¤º¸ÀÔ´Ï´Ù.");
+		System.out.println("[ï¿½ï¿½ï¿½ï¿½] ï¿½ß¸ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 		return null;
 	}
 
 	/**
 	 * <pre>
-	 * ÀüÃ¼ È¸¿ø Å»Åğ ¸Ş¼­µå
+	 * ì „ì²´ íšŒì› íƒˆí‡´ ë©”ì„œë“œ
 	 * </pre>
 	 */
 	public void removeMember() {
@@ -255,11 +256,11 @@ public class MemberService extends MemberServiceAbstract{
 
 	/**
 	 * </pre>
-	 * ¿ì¼öÈ¸¿ø µî¾÷ Ã³¸®
+	 * ìš°ìˆ˜íšŒì› ë“±ì—… ì²˜ë¦¬
 	 * </pre>
-	 * @param dto µî¾÷ÇÏ·Á´Â È¸¿ø °´Ã¼
-	 * @param manager ´ã´çÀÚ
-	 * @return ¼º°ø½Ã true, ½ÇÆĞ½Ã false
+	 * @param dto ë“±ì—…í•˜ë ¤ëŠ” íšŒì› ê°ì²´
+	 * @param manager ë‹´ë‹¹ì
+	 * @return ì„±ê³µì‹œ true, ì‹¤íŒ¨ì‹œ false
 	 */
 	public boolean gradeUp(Member dto, String manager) {
 		if(dto instanceof GeneralMember) {
@@ -276,12 +277,12 @@ public class MemberService extends MemberServiceAbstract{
 				sm.setManager(manager);
 				list.add(sm);
 				list.remove(dto);
-				System.out.println(sm.getName() + "´ÔÀº ¿ì¼ö È¸¿øÀ¸·Î µî¾÷µÇ¾ú½À´Ï´Ù.");
+				System.out.println(sm.getName() + "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
 				return true;
 			}
 		else if(gm.getMileage() < 100000) {
-			System.out.println("´©Àû ¸¶ÀÏ¸®Áö 100,000Á¡ ÀÌ»óÀÌ¸é ¿ì¼ö È¸¿øÀ¸·Î µî¾÷µË´Ï´Ù");
-			System.out.println(gm.getName() + "´ÔÀÇ ÇöÀç ¸¶ÀÏ¸®Áö´Â " + Utility.putComma(gm.getMileage()) + "Á¡ ÀÔ´Ï´Ù.");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ 100,000ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ë´Ï´ï¿½");
+			System.out.println(gm.getName() + "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½ " + Utility.putComma(gm.getMileage()) + "ï¿½ï¿½ ï¿½Ô´Ï´ï¿½.");
 			}
 		}
 		return false;
@@ -289,38 +290,38 @@ public class MemberService extends MemberServiceAbstract{
 	
 	/**
 	 * <pre>
-	 * È¸¿ø ·Î±×ÀÎ ¸Ş¼­µå
+	 * íšŒì› ë¡œê·¸ì¸ ë©”ì„œë“œ
 	 * <pre>
-	 * @param memberId ¾ÆÀÌµğ
-	 * @param memberPw ºñ¹Ğ¹øÈ£
-	 * @return ¼º°ø½Ã true, ½ÇÆĞ½Ã false
+	 * @param memberId ì•„ì´ë””
+	 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+	 * @return ì„±ê³µì‹œ true, ì‹¤íŒ¨ì‹œ false
 	 */
 	public boolean login(String memberId, String memberPw) {
 		int idx = verifyMember(memberId, memberPw);
 		if(idx >= 0) {
-			System.out.println("·Î±×ÀÎ ¼º°ø");
+			System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			String grade = list.get(idx).getGrade();
 			if(grade.equals("G")) {
 				GeneralMember gm = (GeneralMember)list.get(idx);
 				gm.setMileage(gm.getMileage() + 500 );
-				gradeUp(gm, "´ã´çÀÚ");
+				gradeUp(gm, "ï¿½ï¿½ï¿½ï¿½ï¿½");
 			}
 			else if(grade.equals("S")) {
-				System.out.println(list.get(idx).getName() + "´ÔÀº ¿ì¼öÈ¸¿øÀÔ´Ï´Ù.");
+				System.out.println(list.get(idx).getName() + "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½Ô´Ï´ï¿½.");
 			}
 			return true;
 		}
-		System.out.println("·Î±×ÀÎ ½ÇÆĞ");
+		System.out.println("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		return false;
 	}
 	
 	/**
 	 * <pre>
-	 * È¸¿ø ¾ÆÀÌµğ Ã£±â ¸Ş¼­µå
+	 * íšŒì› ì•„ì´ë”” ì°¾ê¸° ë©”ì„œë“œ
 	 * </pre>
-	 * @param name ÀÌ¸§
-	 * @param str ÈŞ´ëÆù ¹øÈ£ ¶Ç´Â ÀÌ¸ŞÀÏ ÁÖ¼Ò
-	 * @return ¼º°ø½Ã ¸¶½ºÅ· Ã³¸®ÇÑ È¸¿ø ¾ÆÀÌµğ, ½ÇÆĞ½Ã null
+	 * @param name ì´ë¦„
+	 * @param str íœ´ëŒ€í° ë²ˆí˜¸ ë˜ëŠ” ì´ë©”ì¼ ì£¼ì†Œ
+	 * @return ì„±ê³µì‹œ ë§ˆìŠ¤í‚¹ ì²˜ë¦¬í•œ íšŒì› ì•„ì´ë””, ì‹¤íŒ¨ì‹œ null
 	 */
 	public String findId(String name, String str) {
 		Member tmp = new Member();
@@ -331,28 +332,28 @@ public class MemberService extends MemberServiceAbstract{
 				return Utility.alterString(tmp.getMemberId(), 4);
 			}
 		}
-		System.out.println("[¿À·ù] ÀÔ·ÂÇÑ Á¤º¸·Î µî·ÏµÈ È¸¿øÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+		System.out.println("[ï¿½ï¿½ï¿½ï¿½] ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
 		return null;
 	}
 	
 	/**
 	 * <pre>
-	 * ºñ¹Ğ¹øÈ£ Ã£±â ¸Ş¼­µå
+	 * ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ë©”ì„œë“œ
 	 * </pre>
-	 * @param memberId ¾ÆÀÌµğ
-	 * @param str ÈŞ´ëÆù ¹øÈ£ ¶Ç´Â ÀÌ¸ŞÀÏ ÁÖ¼Ò
-	 * @return ¼º°ø ½Ã true, ½ÇÆĞ½Ã false
+	 * @param memberId ì•„ì´ë””
+	 * @param str íœ´ëŒ€í° ë²ˆí˜¸ ë˜ëŠ” ì´ë©”ì¼ ì£¼ì†Œ
+	 * @return ì„±ê³µ ì‹œ true, ì‹¤íŒ¨ì‹œ false
 	 */
 	public boolean findPw(String memberId, String str) {
 		int idx = exist(memberId);
 	
 		if(idx >= 0 && (list.get(idx).getEmail().equals(str) || list.get(idx).getMobile().equals(str))) {
-			System.out.println("ÀÓ½Ã ºñ¹Ğ¹øÈ£°¡ " + str + "·Î Àü¼ÛµÇ¾ú½À´Ï´Ù.");
-			System.out.println("¹ß±ŞµÈ ÀÓ½Ã ºñ¹Ğ¹øÈ£·Î ·Î±×ÀÎ ÈÄ ºñ¹ĞºóÈ£ º¯°æ ¹Ù¶ø´Ï´Ù.");
+			System.out.println("ï¿½Ó½ï¿½ ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ " + str + "ï¿½ï¿½ ï¿½ï¿½ï¿½ÛµÇ¾ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
+			System.out.println("ï¿½ß±Şµï¿½ ï¿½Ó½ï¿½ ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ğºï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¶ï¿½ï¿½Ï´ï¿½.");
 			list.get(idx).setMemberPw(Utility.secureNum(6));
 			return true;
 		}
-		System.out.println("[¿À·ù] ÀÔ·ÂÇÑ Á¤º¸·Î µî·ÏµÈ È¸¿øÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù");
+		System.out.println("[ï¿½ï¿½ï¿½ï¿½] ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ïµï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½");
 		return false;
 	}
 	
