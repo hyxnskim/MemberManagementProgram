@@ -5,48 +5,47 @@ package model.dto;
 
 /**
  * <pre>
- * È¸¿øÀÇ ¼Ó¼º(µ¥ÀÌÅÍ) Ç×¸ñ
+ * íšŒì›ì˜ ì†ì„±(ë°ì´í„°) í•­ëª©
  * </pre>
  * @author Hyunsoo Kim
  * @version ver.1.0
  * @since jdk1.8
- *
  */
 public class Member {
-		// ÇÊ¼ö - °¡ÀÔ½Ã ÀÔ·Â
-		/** ¾ÆÀÌµğ, ½Äº°Å° */
+		// í•„ìˆ˜ - ê°€ì…ì‹œ ì…ë ¥
+		/** ì•„ì´ë””, ì‹ë³„í‚¤ */
 		private String memberId; // unique value
 
-		/** ºñ¹Ğ¹øÈ£, ÇÊ¼ö */
+		/** ë¹„ë°€ë²ˆí˜¸, í•„ìˆ˜ */
 		public String memberPw;
 
-		/** ÀÌ¸§, ÇÊ¼ö */
+		/** ì´ë¦„, í•„ìˆ˜ */
 		public String name;
 
-		/** ÈŞ´ëÆù, ÇÊ¼ö */
+		/** íœ´ëŒ€í°, í•„ìˆ˜ */
 		public String mobile; // unique value
 
-		/** ÀÌ¸ŞÀÏ, ÇÊ¼ö */
+		/** ì´ë©”ì¼, í•„ìˆ˜ */
 		public String email; // unique value
 
-		// ÇÊ¼ö - ½Ã½ºÅÛ
-		/** °¡ÀÔÀÏ, ÇÊ¼ö, ½Ã½ºÅÛ ÀÔ·Â */
+		// í•„ìˆ˜ - ì‹œìŠ¤í…œ
+		/** ê°€ì…ì¼, í•„ìˆ˜, ì‹œìŠ¤í…œ ì…ë ¥ */
 		public String entryDate;
 
-		/** µî±Ş, ÇÊ¼ö, ½Ã½ºÅÛ ÀÔ·Â */
-		public String grade; // ÀÏ¹İ(G) / ¿ì¼ö(S) / °ü¸®ÀÚ(A)
+		/** ë“±ê¸‰, í•„ìˆ˜, ì‹œìŠ¤í…œ ì…ë ¥ */
+		public String grade; // ì¼ë°˜(G) / ìš°ìˆ˜(S) / ê´€ë¦¬ì(A)
 
 
-		/** ±âº» »ı¼ºÀÚ */
+		/** ê¸°ë³¸ ìƒì„±ì */
 		public Member() {}
 
 		/**
-		 * »ç¿ëÀÚÀÔ·Â ÇÊ¼öµ¥ÀÌÅÍ ÃÊ±âÈ­ »ı¼ºÀÚ
-		 * @param memberId ¾ÆÀÌµğ
-		 * @param memberPw ºñ¹Ğ¹øÈ£
-		 * @param name ÀÌ¸§
-		 * @param mobile ÈŞ´ëÆù
-		 * @param email ÀÌ¸ŞÀÏ
+		 * ì‚¬ìš©ìì…ë ¥ í•„ìˆ˜ë°ì´í„° ì´ˆê¸°í™” ìƒì„±ì
+		 * @param memberId ì•„ì´ë””
+		 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+		 * @param name ì´ë¦„
+		 * @param mobile íœ´ëŒ€í°
+		 * @param email ì´ë©”ì¼
 		 */
 		public Member(String memberId, String memberPw, String name, String mobile, String email) {
 			this.memberId = memberId;
@@ -57,14 +56,14 @@ public class Member {
 		}
 
 		/**
-		 * È¸¿ø ÇÊ¼öµ¥ÀÌÅÍ ÃÊ±âÈ­ »ı¼ºÀÚ
-		 * @param memberId ¾ÆÀÌµğ
-		 * @param memberPw ºñ¹Ğ¹øÈ£
-		 * @param name ÀÌ¸§
-		 * @param mobile ÈŞ´ëÆù
-		 * @param email ÀÌ¸ŞÀÏ
-		 * @param entryDate °¡ÀÔÀÏ
-		 * @param grade µî±Ş
+		 * íšŒì› í•„ìˆ˜ë°ì´í„° ì´ˆê¸°í™” ìƒì„±ì
+		 * @param memberId ì•„ì´ë””
+		 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+		 * @param name ì´ë¦„
+		 * @param mobile íœ´ëŒ€í°
+		 * @param email ì´ë©”ì¼
+		 * @param entryDate ê°€ì…ì¼
+		 * @param grade ë“±ê¸‰
 		 */
 		public Member(String memberId, String memberPw, String name, String mobile, String email, String entryDate,
 				String grade) {
@@ -81,9 +80,9 @@ public class Member {
 		}
 
 		/**
-		 * ¾ÆÀÌµğ °ËÁõ±ÔÄ¢ :
-		 * -- ÃÖ¼Ò 6ÀÚ¸®, ÃÖ´ë 30ÀÚ¸®
-		 * -- ¹®ÀÚ¿­ ±æÀÌ ¸Ş¼­µå : {@link String#length}
+		 * ì•„ì´ë”” ê²€ì¦ê·œì¹™ :
+		 * -- ìµœì†Œ 6ìë¦¬, ìµœëŒ€ 30ìë¦¬
+		 * -- ë¬¸ìì—´ ê¸¸ì´ ë©”ì„œë“œ : {@link String#length}
 		 * @param memberId the memberId to set
 		 */
 		public void setMemberId(String memberId) {
@@ -91,14 +90,14 @@ public class Member {
 			if(result) {
 				this.memberId = memberId;
 			} else {
-				System.out.println("[¿À·ù] ¾ÆÀÌµğ´Â 6~30ÀÚ¸® ÀÌ³»·Î ÀÔ·ÂÇÏ¼¼¿ä");
+				System.out.println("[ï¿½ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½Ìµï¿½ï¿½ 6~30ï¿½Ú¸ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½");
 			}
 		}
 		
 		/**
-		 * ¾ÆÀÌµğ °ËÁõ ¸Ş¼­µå
-		 * @param memberId ¾ÆÀÌµğ
-		 * @return ¾ÆÀÌµğ ±æÀÌ°¡ 6~30ÀÚ¸® ÀÌ³»¸é true, ±×·¸Áö ¾ÊÀ¸¸é false
+		 * ì•„ì´ë”” ê²€ì¦ ë©”ì„œë“œ
+		 * @param memberId ì•„ì´ë””
+		 * @return ì•„ì´ë”” ê¸¸ì´ê°€ 6~30ìë¦¬ ì´ë‚´ë©´ true, ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ false
 		 */
 		private boolean isMemberId(String memberId) {
 			if(memberId.length() >= 6 && memberId.length() <= 30) {
@@ -116,20 +115,20 @@ public class Member {
 		}
 
 		/**
-		 * ºñ¹Ğ¹øÈ£ °ËÁõ±ÔÄ¢ :
-		 * -- ÃÖ¼Ò 6ÀÚ¸®, ÃÖ´ë 20ÀÚ¸®
+		 * ë¹„ë°€ë²ˆí˜¸ ê²€ì¦ê·œì¹™ :
+		 * -- ìµœì†Œ 6ìë¦¬, ìµœëŒ€ 20ìë¦¬
 		 * @param memberPw the memberPw to set
 		 */
 		public void setMemberPw(String memberPw) {
 			boolean result = isMemberPw(memberPw);
 			if(result) this.memberPw = memberPw;
-			else System.out.println("[¿À·ù] ºñ¹Ğ¹øÈ£´Â 6~30ÀÚ¸® ÀÌ³»·Î ÀÔ·ÂÇÏ¼¼¿ä");
+			else System.out.println("[ï¿½ï¿½ï¿½ï¿½] ï¿½ï¿½Ğ¹ï¿½È£ï¿½ï¿½ 6~30ï¿½Ú¸ï¿½ ï¿½Ì³ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½Ï¼ï¿½ï¿½ï¿½");
 		}
 		
 		/**
-		 * ºñ¹Ğ¹øÈ£ °ËÁõ ¸Ş¼­µå
-		 * @param memberPw ºñ¹Ğ¹øÈ£
-		 * @return ºñ¹Ğ¹øÈ£ ±æÀÌ°¡ 6~20ÀÚ¸® ÀÌ³»¸é true, ±×·¸Áö ¾ÊÀ¸¸é false
+		 * ë¹„ë°€ë²ˆí˜¸ ê²€ì¦ ë©”ì„œë“œ
+		 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+		 * @return ë¹„ë°€ë²ˆí˜¸ ê¸¸ì´ê°€ 6~20ìë¦¬ ì´ë‚´ë©´ true, ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ false
 		 */
 		private boolean isMemberPw(String memberPw) {
 			if(memberPw.length() >= 6 && memberPw.length() <= 20) {
@@ -203,19 +202,19 @@ public class Member {
 		}
 
 		/**
-		 * µî±Ş °ËÁõ ±ÔÄ¢
-		 * -- G ¶Ç´Â S ¶Ç´Â A
+		 * ë“±ê¸‰ ê²€ì¦ ê·œì¹™
+		 * -- G ë˜ëŠ” S ë˜ëŠ” A
 		 * @param grade the grade to set
 		 */
 		public void setGrade(String grade) {
 			if(isGrade(grade)) this.grade = grade;
-			else System.out.println("[¿À·ù] µî±ŞÀº G, S, A Áß ÇÏ³ªÀÔ´Ï´Ù.");
+			else System.out.println("[ï¿½ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½ï¿½ï¿½ G, S, A ï¿½ï¿½ ï¿½Ï³ï¿½ï¿½Ô´Ï´ï¿½.");
 		}
 		
 		/**
-		 * µî±Ş °ËÁõ ¸Ş¼­µå
-		 * @param grade º¯°æ µî±Ş
-		 * @return µî±ŞÀÌ G, S, A Áß ÇÏ³ªÀÌ¸é true, ±×·¸Áö ¾ÊÀ¸¸é false
+		 * ë“±ê¸‰ ê²€ì¦ ë©”ì„œë“œ
+		 * @param grade ë³€ê²½ ë“±ê¸‰
+		 * @return ë“±ê¸‰ì´ G, S, A ì¤‘ í•˜ë‚˜ì´ë©´ true, ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ false
 		 */
 		private boolean isGrade(String grade) {
 			return (grade.equals("G") || grade.equals("S") || grade.equals("A"));
@@ -243,7 +242,7 @@ public class Member {
 
 			Member other = (Member) obj;
 			if (memberId == null) {
-				if (other.memberId != null)	// null : ¾î¶°ÇÑ °´Ã¼µµ ÂüÁ¶ÇÏ°í ÀÖÁö ¾ÊÀ½
+				if (other.memberId != null)	// null : ï¿½î¶°ï¿½ï¿½ ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					return false;
 			} else if (!memberId.equals(other.memberId))
 				return false;

@@ -4,26 +4,26 @@
 package model.dto;
 
 /**
- * ÀÏ¹İ È¸¿ø µµ¸ŞÀÎ Å¬·¡½º
+ * ì¼ë°˜ íšŒì› ë„ë©”ì¸ í´ë˜ìŠ¤
  * @author Hyunsoo Kim
  * @ version ver.1.0
  * @ since jdk1.8
  */
 public class GeneralMember extends Member{
-	/** ÀÏ¹İÈ¸¿ø ¸¶ÀÏ¸®Áö */
+	/** ì¼ë°˜íšŒì› ë§ˆì¼ë¦¬ì§€ */
 	private int mileage;
 
 
-	/** ±âº»»ı¼ºÀÚ */
+	/** ê¸°ë³¸ìƒì„±ì */
 	public GeneralMember() {}
 
 	/**
-	 * È¸¿ø ÀÔ·Â ÇÊ¼öµ¥ÀÌÅÍ ÃÊ±âÈ­ »ı¼ºÀÚ
-	 * @param memberId ¾ÆÀÌµğ
-	 * @param memberPw ºñ¹Ğ¹øÈ£
-	 * @param name ÀÌ¸§
-	 * @param mobile ÈŞ´ëÆù
-	 * @param email ÀÌ¸ŞÀÏ
+	 * íšŒì› ì…ë ¥ í•„ìˆ˜ë°ì´í„° ì´ˆê¸°í™” ìƒì„±ì
+	 * @param memberId ì•„ì´ë””
+	 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+	 * @param name ì´ë¦„
+	 * @param mobile íœ´ëŒ€í°
+	 * @param email ì´ë©”ì¼
 	 */
 	public GeneralMember(String memberId, String memberPw, String name, String mobile, String email) {
 		setMemberId(memberId);
@@ -37,15 +37,15 @@ public class GeneralMember extends Member{
 	}
 
 	/**
-	 * ÀÏ¹İÈ¸¿ø ÀüÃ¼ µ¥ÀÌÅÍ ÃÊ±âÈ­ »ı¼ºÀÚ
-	 * @param memberId ¾ÆÀÌµğ
-	 * @param memberPw ºñ¹Ğ¹øÈ£
-	 * @param name ÀÌ¸§
-	 * @param mobile ÈŞ´ëÆù
-	 * @param email ÀÌ¸ŞÀÏ
-	 * @param entryDate °¡ÀÔÀÏ
-	 * @param grade µî±Ş
-	 * @param mileage ¸¶ÀÏ¸®Áö
+	 * ì¼ë°˜íšŒì› ì „ì²´ ë°ì´í„° ì´ˆê¸°í™” ìƒì„±ì
+	 * @param memberId ì•„ì´ë””
+	 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+	 * @param name ì´ë¦„
+	 * @param mobile íœ´ëŒ€í°
+	 * @param email ì´ë©”ì¼
+	 * @param entryDate ê°€ì…ì¼
+	 * @param grade ë“±ê¸‰
+	 * @param mileage ë§ˆì¼ë¦¬ì§€
 	 */
 	public GeneralMember(String memberId, String memberPw, String name, String mobile, String email, String entryDate,
 			String grade, int mileage) {
@@ -61,20 +61,20 @@ public class GeneralMember extends Member{
 	}
 
 	/**
-	 * ¸¶ÀÏ¸®Áö °ËÁõ ±ÔÄ¢
-	 * -- 0 ÀÌ»ó 100000 ÀÌÇÏ
+	 * ë§ˆì¼ë¦¬ì§€ ê²€ì¦ ê·œì¹™
+	 * -- 0 ì´ìƒ 100000 ì´í•˜
 	 * @param mileage the mileage to set
 	 */
 	public void setMileage(int mileage) {
 		boolean result = isMileage(mileage);
 		if(result) this.mileage = mileage;
-		else System.out.println("[¿À·ù] ¸¶ÀÏ¸®Áö´Â 0~100,000 ÀÌ³»ÀÔ´Ï´Ù");
+		else System.out.println("[ï¿½ï¿½ï¿½ï¿½] ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½ 0~100,000 ï¿½Ì³ï¿½ï¿½Ô´Ï´ï¿½");
 	}
 	
 	/**
-	 * ¸¶ÀÏ¸®Áö °ËÁõ ¸Ş¼­µå
-	 * @param mileage ¸¶ÀÏ¸®Áö
-	 * @return ¸¶ÀÏ¸®Áö°¡ 0~100000 »çÀÌ¸é true, ±×·¸Áö ¾ÊÀ¸¸é false
+	 * ë§ˆì¼ë¦¬ì§€ ê²€ì¦ ë©”ì„œë“œ
+	 * @param mileage ë§ˆì¼ë¦¬ì§€
+	 * @return ë§ˆì¼ë¦¬ì§€ê°€ 0~100000 ì‚¬ì´ë©´ true, ê·¸ë ‡ì§€ ì•Šìœ¼ë©´ false
 	 */
 	private boolean isMileage(int mileage) {
 		if(mileage >= 0 && mileage <= 100000) {

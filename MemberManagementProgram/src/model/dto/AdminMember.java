@@ -4,26 +4,26 @@
 package model.dto;
 
 /**
- * °ü¸®ÀÚ È¸¿ø µµ¸ŞÀÎ Å¬·¡½º
+ * ê´€ë¦¬ì íšŒì› ë„ë©”ì¸ í´ë˜ìŠ¤
  * @author Hyunsoo Kim
  * @ version ver.1.0
  * @ since jdk1.8
  */
 public class AdminMember extends Member {
-	/** °ü¸®ÀÚÈ¸¿ø Á÷Ã¥ */
+	/** ê´€ë¦¬ìíšŒì› ì§ì±… */
 	private String position;
 
 
-	/** ±âº»»ı¼ºÀÚ */
+	/** ê¸°ë³¸ìƒì„±ì */
 	public AdminMember() {}
 
 	/**
-	 * È¸¿ø ÀÔ·Â ÇÊ¼öµ¥ÀÌÅÍ ÃÊ±âÈ­ »ı¼ºÀÚ
-	 * @param memberId ¾ÆÀÌµğ
-	 * @param memberPw ºñ¹Ğ¹øÈ£
-	 * @param name ÀÌ¸§
-	 * @param mobile ÈŞ´ëÆù
-	 * @param email ÀÌ¸ŞÀÏ
+	 * íšŒì› ì…ë ¥ í•„ìˆ˜ë°ì´í„° ì´ˆê¸°í™” ìƒì„±ì
+	 * @param memberId ì•„ì´ë””
+	 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+	 * @param name ì´ë¦„
+	 * @param mobile íœ´ëŒ€í°
+	 * @param email ì´ë©”ì¼
 	 */
 	public AdminMember(String memberId, String memberPw, String name, String mobile, String email) {
 		setMemberId(memberId);
@@ -37,15 +37,15 @@ public class AdminMember extends Member {
 	}
 
 	/**
-	 * ÀÏ¹İÈ¸¿ø ÀüÃ¼ µ¥ÀÌÅÍ ÃÊ±âÈ­ »ı¼ºÀÚ
-	 * @param memberId ¾ÆÀÌµğ
-	 * @param memberPw ºñ¹Ğ¹øÈ£
-	 * @param name ÀÌ¸§
-	 * @param mobile ÈŞ´ëÆù
-	 * @param email ÀÌ¸ŞÀÏ
-	 * @param entryDate °¡ÀÔÀÏ
-	 * @param grade µî±Ş
-	 * @param position Á÷Ã¥
+	 * ì¼ë°˜íšŒì› ì „ì²´ ë°ì´í„° ì´ˆê¸°í™” ìƒì„±ì
+	 * @param memberId ì•„ì´ë””
+	 * @param memberPw ë¹„ë°€ë²ˆí˜¸
+	 * @param name ì´ë¦„
+	 * @param mobile íœ´ëŒ€í°
+	 * @param email ì´ë©”ì¼
+	 * @param entryDate ê°€ì…ì¼
+	 * @param grade ë“±ê¸‰
+	 * @param position ì§ì±…
 	 */
 	public AdminMember(String memberId, String memberPw, String name, String mobile, String email, String entryDate,
 			String grade, String position) {
