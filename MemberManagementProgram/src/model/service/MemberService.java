@@ -23,7 +23,7 @@ public class MemberService extends MemberServiceAbstract{
 	
 	/** 기본생성자 : 초기화 회원 등록 수행 */
 	public MemberService() {
-		System.out.println("�ʱ�ȭȸ�� ����۾��� �Ϸ�Ǿ����ϴ� : " + initMember());
+		System.out.println("초기화회원 등록작업이 완료되었습니다: " + initMember());
 	}
 	
 	/** 
@@ -87,11 +87,11 @@ public class MemberService extends MemberServiceAbstract{
 	 */
 	public int initMember(){
 		
-		Member dto1 = new GeneralMember("user01", "password01", "ȫ�浿", "01012341000", "user01@work.com", "2020-12-15", "G", 50000);
-		Member dto2 = new GeneralMember("user02", "password02", "������", "01012342000", "user02@work.com", "2021-01-05", "G", 950000);
-		Member dto3 = new SpecialMember("user03", "password03", "�̼���", "01012343000", "user03@work.com", "2020-11-15", "S", "������");
-		Member dto4 = new SpecialMember("user04", "password04", "������", "01012344000", "user04@work.com", "2021-01-05", "S", "���ϸ�");
-		Member dto5 = new AdminMember("administrator", "admin1004", "������", "01012345000", "administrator@work.com", "2020-04-01", "A", "����");
+		Member dto1 = new GeneralMember("user01", "password01", "홍길동", "01012341000", "user01@work.com", "2020-12-15", "G", 50000);
+		Member dto2 = new GeneralMember("user02", "password02", "강감찬", "01012342000", "user02@work.com", "2021-01-05", "G", 950000);
+		Member dto3 = new SpecialMember("user03", "password03", "이순신", "01012343000", "user03@work.com", "2020-11-15", "S", "������");
+		Member dto4 = new SpecialMember("user04", "password04", "김유신", "01012344000", "user04@work.com", "2021-01-05", "S", "���ϸ�");
+		Member dto5 = new AdminMember("administrator", "admin1004", "유관순", "01012345000", "administrator@work.com", "2020-04-01", "A", "����");
 		addMember(dto1);
 		addMember(dto2);
 		addMember(dto3);
@@ -112,7 +112,7 @@ public class MemberService extends MemberServiceAbstract{
 			list.add(dto);
 		}
 		else {
-			System.out.println("[����] " + dto.getMemberId() + "�� �ߺ��� ���̵��Դϴ�");
+			System.out.println("[오류] " + dto.getMemberId() + "는 중복된 아이디입니다");
 		}
 	}
 	
@@ -132,9 +132,9 @@ public class MemberService extends MemberServiceAbstract{
 		int idxEmail = existEmail(email);
 		
 		if(idxMobile >= 0) {
-			System.out.println("[����] " + mobile + "�� �̹� ��ϵ� �޴��� ��ȣ�Դϴ�");
+			System.out.println("[오류] " + mobile + "은 이미 등록된 휴대폰 번호입니다");
 		} else if(idxEmail >= 0) {
-			System.out.println("[����] " + email + "�� �̹� ��ϵ� �̸��� �ּ��Դϴ�.");
+			System.out.println("[오류] " + email + "은 이미 등록된 이메일 주소입니다");
 		} else {
 			GeneralMember dto = new GeneralMember(memberId, memberPw, name, mobile, email);
 			dto.setGrade("G");
@@ -166,7 +166,7 @@ public class MemberService extends MemberServiceAbstract{
 			return list.get(idx);
 		}
 		
-		System.out.println("[����] " + memberId + "�� �������� �ʴ� ���̵��Դϴ�");
+		System.out.println("[오류] " + memberId + "는 존재하지 않는 아이디입니다");
 		return null; 
 	}
 
@@ -182,10 +182,10 @@ public class MemberService extends MemberServiceAbstract{
 		
 		if(idx > -1) {
 			list.set(idx, dto);
-			System.out.println("���������� ����Ǿ����ϴ�.");
+			System.out.println("성공적으로 변경되었습니다");
 			return true;	
 		}
-		System.out.println("[����] ��ϵ��� ���� ȸ���Դϴ�.");
+		System.out.println("[오류] 등록되지 않은 회원입니다");
 		return false;
 	}
 	
@@ -217,11 +217,11 @@ public class MemberService extends MemberServiceAbstract{
 	public boolean setMemberPw(String memberId, String memberPw, String newPw) {
 		int idx = verifyMember(memberId, memberPw);
 		if(idx >= 0) {
-			System.out.println("��й�ȣ�� ���������� ����Ǿ����ϴ�.");
+			System.out.println("비밀번호가 성공적으로 변경되었습니다");
 			list.get(idx).setMemberPw(newPw);
 			return true;
 		}
-		System.out.println("[����] �߸��� ȸ�� �����Դϴ�." );
+		System.out.println("[오류] 잘못된 회원 정보입니다." );
 		return false;
 	}
 
@@ -237,11 +237,11 @@ public class MemberService extends MemberServiceAbstract{
 		
 		int idx = verifyMember(memberId, memberPw);
 		if(idx >= 0) {
-			System.out.println("���������� Ż��Ǿ����ϴ�.");
+			System.out.println("정상적으로 탈퇴되었습니다");
 			Member dto = list.remove(idx);
 			return dto;
 		}
-		System.out.println("[����] �߸��� ȸ�� �����Դϴ�.");
+		System.out.println("[오류] 잘못된 회원 정보입니다");
 		return null;
 	}
 
@@ -277,12 +277,12 @@ public class MemberService extends MemberServiceAbstract{
 				sm.setManager(manager);
 				list.add(sm);
 				list.remove(dto);
-				System.out.println(sm.getName() + "���� ��� ȸ������ ����Ǿ����ϴ�.");
+				System.out.println(sm.getName() + "님은 우수 회원으로 등업되었습니다.");
 				return true;
 			}
 		else if(gm.getMileage() < 100000) {
-			System.out.println("���� ���ϸ��� 100,000�� �̻��̸� ��� ȸ������ ����˴ϴ�");
-			System.out.println(gm.getName() + "���� ���� ���ϸ����� " + Utility.putComma(gm.getMileage()) + "�� �Դϴ�.");
+			System.out.println("누적 마일리지 100,000점 이상이면 우수 회원으로 등업됩니다");
+			System.out.println(gm.getName() + "님의 현재 마일리지는 " + Utility.putComma(gm.getMileage()) + "점 입니다.");
 			}
 		}
 		return false;
@@ -307,11 +307,11 @@ public class MemberService extends MemberServiceAbstract{
 				gradeUp(gm, "�����");
 			}
 			else if(grade.equals("S")) {
-				System.out.println(list.get(idx).getName() + "���� ���ȸ���Դϴ�.");
+				System.out.println(list.get(idx).getName() + "님은 우수회원입니다.");
 			}
 			return true;
 		}
-		System.out.println("�α��� ����");
+		System.out.println("로그인 실패");
 		return false;
 	}
 	
@@ -332,7 +332,7 @@ public class MemberService extends MemberServiceAbstract{
 				return Utility.alterString(tmp.getMemberId(), 4);
 			}
 		}
-		System.out.println("[����] �Է��� ������ ��ϵ� ȸ���� �������� �ʽ��ϴ�");
+		System.out.println("[오류] 입력한 정보로 등록된 회원이 존재하지 않습니다");
 		return null;
 	}
 	
@@ -348,12 +348,12 @@ public class MemberService extends MemberServiceAbstract{
 		int idx = exist(memberId);
 	
 		if(idx >= 0 && (list.get(idx).getEmail().equals(str) || list.get(idx).getMobile().equals(str))) {
-			System.out.println("�ӽ� ��й�ȣ�� " + str + "�� ���۵Ǿ����ϴ�.");
-			System.out.println("�߱޵� �ӽ� ��й�ȣ�� �α��� �� ��к�ȣ ���� �ٶ��ϴ�.");
+			System.out.println("임시 비밀번호가 " + str + "로 전송되었습니다.");
+			System.out.println("발급된 임시 비밀번호로 로그인 후 비밀빈호 변경 바랍니다.");
 			list.get(idx).setMemberPw(Utility.secureNum(6));
 			return true;
 		}
-		System.out.println("[����] �Է��� ������ ��ϵ� ȸ���� �������� �ʽ��ϴ�");
+		System.out.println("[오류] 입력한 정보로 등록된 회원이 존재하지 않습니다");
 		return false;
 	}
 	
