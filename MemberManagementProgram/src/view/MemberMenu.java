@@ -2,6 +2,7 @@ package view;
 
 import java.util.Scanner;
 
+import model.dto.Member;
 import model.service.MemberService;
 
 /**
@@ -36,7 +37,7 @@ public class MemberMenu {
 			
 			switch(menuNo) {
 			case 1:
-				System.out.println("1. 로그인");
+				loginMenu();
 				break;
 			case 2:
 				System.out.println("2. 회원가입");
@@ -81,22 +82,69 @@ public class MemberMenu {
 
 		String grade = service.login(memberId, memberPw);
 		System.out.println("[로그인성공] " + memberId + "님 (등급: " + grade + ")");
+		
+		Member mem = service.getMember(service.verifyMember(memberId, memberPw));
+		
 		switch(grade) {
 		case "G":
 		case "S":
-			serviceMainMenu();
+			serviceMainMenu(mem);
 			break;
 		case "A":
 			adminMainMenu();
 			break;
 		}
+		
+		
 	}	
 	
 	/**
 	 * 회원 전용 서비스 메인메뉴
 	 */
-	private void serviceMainMenu() {
+	private void serviceMainMenu(Member mem) {
 		printTitle("회원 메뉴");
+		
+		System.out.println("1. 내 정보 조회");
+		System.out.println("2. 내 정보 변경");
+		System.out.println("3. 비밀번호 변경");
+		System.out.println("4. 로그아웃");
+		System.out.println("0. 프로그램 종료");
+		System.out.println("-------------------------");
+		System.out.print("메뉴번호 입력 : ");
+		
+		int menuNo = sc.nextInt();
+		
+		switch(menuNo) {
+		case 1:
+			printTitle("내 정보 조회");
+			System.out.println(service.getMember(mem.getMemberId()));
+			break;
+		case 2:
+			printTitle("내 정보 변경");
+			service.setMember(mem);
+			break;
+		case 3:
+			printTitle("비밀번호 변경");
+			System.out.print("기존 비밀번호: ");
+			String pw = sc.next();
+			System.out.print("변경할 비밀번호: ");
+			String newPw = sc.next();
+			
+			service.setMemberPw(mem.getMemberId(), pw, newPw);
+			break;
+		case 4:
+			System.out.println("[로그아웃 성공] 이용해주셔서 감사합니다..");
+			mainMenu();
+			break;
+		case 0:
+			System.out.println("프로그램을 종료합니다.");
+			sc.close();
+			System.exit(0);
+			break;
+		default:
+			System.out.println("메뉴번호 오류");
+			break;
+		}
 	}
 
 	private void adminMainMenu() {

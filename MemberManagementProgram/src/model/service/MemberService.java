@@ -169,6 +169,21 @@ public class MemberService extends MemberServiceAbstract{
 		System.out.println("[오류] " + memberId + "는 존재하지 않는 아이디입니다");
 		return null; 
 	}
+	
+	/**
+	 * <pre>
+	 * 특정 회원 정보 조회 메서드
+	 * </pre>
+	 * @param memberId 조회할 회원 아이디
+	 * @return 조회할 회원 객체
+	 */
+	public Member getMember(int idx) {
+		if(idx >= 0 && idx < list.size()) {
+			Member mem = list.get(idx);
+			return mem; 
+		}
+		return null;
+	}
 
 	/**
 	 * <pre>
@@ -217,8 +232,8 @@ public class MemberService extends MemberServiceAbstract{
 	public boolean setMemberPw(String memberId, String memberPw, String newPw) {
 		int idx = verifyMember(memberId, memberPw);
 		if(idx >= 0) {
-			System.out.println("비밀번호가 성공적으로 변경되었습니다");
 			list.get(idx).setMemberPw(newPw);
+			System.out.println("비밀번호가 성공적으로 변경되었습니다");
 			return true;
 		}
 		System.out.println("[오류] 잘못된 회원 정보입니다." );
