@@ -136,10 +136,10 @@ public abstract class MemberServiceAbstract {
 	 * 회원 로그인
 	 * -- 메서드명 : login()
 	 * -- 매개변수 : 회원 아이디, 비밀번호
-	 * -- 반환타입 : boolean
+	 * -- 반환타입 : String
 	 * </pre>
 	 */
-	public abstract boolean login(String memberId, String memberPw);
+	public abstract String login(String memberId, String memberPw);
 	
 	/**
 	 * <pre>

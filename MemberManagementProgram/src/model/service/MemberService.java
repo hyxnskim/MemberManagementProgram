@@ -294,25 +294,25 @@ public class MemberService extends MemberServiceAbstract{
 	 * <pre>
 	 * @param memberId 아이디
 	 * @param memberPw 비밀번호
-	 * @return 성공시 true, 실패시 false
+	 * @return 성공시 회원 등급, 실패시 null
 	 */
-	public boolean login(String memberId, String memberPw) {
+	public String login(String memberId, String memberPw) {
 		int idx = verifyMember(memberId, memberPw);
 		if(idx >= 0) {
-			System.out.println("�α��� ����");
+			System.out.println("로그인 성공");
 			String grade = list.get(idx).getGrade();
 			if(grade.equals("G")) {
 				GeneralMember gm = (GeneralMember)list.get(idx);
 				gm.setMileage(gm.getMileage() + 500 );
-				gradeUp(gm, "�����");
+				gradeUp(gm, "담당자");
 			}
 			else if(grade.equals("S")) {
 				System.out.println(list.get(idx).getName() + "님은 우수회원입니다.");
 			}
-			return true;
+			return list.get(idx).getGrade();
 		}
 		System.out.println("로그인 실패");
-		return false;
+		return null;
 	}
 	
 	/**
