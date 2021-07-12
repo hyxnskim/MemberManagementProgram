@@ -1,5 +1,6 @@
 package view;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import model.dto.Member;
@@ -91,7 +92,7 @@ public class MemberMenu {
 			serviceMainMenu(mem);
 			break;
 		case "A":
-			adminMainMenu();
+			adminMainMenu(mem);
 			break;
 		}
 		
@@ -147,8 +148,57 @@ public class MemberMenu {
 		}
 	}
 
-	private void adminMainMenu() {
+	private void adminMainMenu(Member mem) {
 		printTitle("관리자 메뉴");
+		
+		System.out.println("1. 내정보조회");
+		System.out.println("2. 내정보변경");
+		System.out.println("3. 비밀번호변경");
+		System.out.println("4. 회원관리[전체회원조회]");
+		System.out.println("5. 로그아웃");
+		System.out.println("0. 프로그램 종료");
+		System.out.println("-------------------------");
+		System.out.print("메뉴번호 입력 : ");
+		
+		int menuNo = sc.nextInt();
+		
+		switch(menuNo) {
+		case 1:
+			printTitle("내 정보 조회");
+			System.out.println(service.getMember(mem.getMemberId()));
+			break;
+		case 2:
+			printTitle("내 정보 변경");
+			service.setMember(mem);
+			break;
+		case 3:
+			printTitle("비밀번호 변경");
+			System.out.print("기존 비밀번호: ");
+			String pw = sc.next();
+			System.out.print("변경할 비밀번호: ");
+			String newPw = sc.next();
+			
+			service.setMemberPw(mem.getMemberId(), pw, newPw);
+			break;
+		case 4:
+			printTitle("4. 회원관리[전체회원조회]");
+			ArrayList<Member> memList = service.getMember();
+			for(Member i : memList) {
+				System.out.println(i);
+			}
+		case 5:
+			System.out.println("[로그아웃 성공] 이용해주셔서 감사합니다..");
+			mainMenu();
+			break;
+		case 0:
+			System.out.println("프로그램을 종료합니다.");
+			sc.close();
+			System.exit(0);
+			break;
+		default:
+			System.out.println("메뉴번호 오류");
+			break;
+		}
 	}
 	
 }
