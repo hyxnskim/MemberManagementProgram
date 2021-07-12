@@ -42,6 +42,7 @@ public class MemberMenu {
 				break;
 			case 2:
 				System.out.println("2. 회원가입");
+				addMemberMenu();
 				break;
 			case 3:
 				System.out.println("3. 아이디찾기");
@@ -198,6 +199,33 @@ public class MemberMenu {
 		default:
 			System.out.println("메뉴번호 오류");
 			break;
+		}
+	}
+	
+	public void addMemberMenu() {
+		printTitle("회원 가입 메뉴");
+		
+		System.out.print("아이디 : ");
+		String memberId = sc.next();
+
+		System.out.print("비밀번호 : ");
+		String memberPw = sc.next();
+
+		System.out.print("이름 : ");
+		String name = sc.next();
+
+		System.out.print("휴대폰 : ");
+		String mobile = sc.next();
+
+		System.out.print("이메일 : ");
+		String email = sc.next();
+		
+		boolean isAdded = service.addMember(memberId, memberPw, name, mobile, email);
+		if(isAdded) {
+			System.out.println("[성공] " + memberId + "님 회원등록 완료되었습니다. 로그인 후 회원전용 서비스를 이용하시기 바랍니다.");
+			loginMenu();
+		} else {
+			mainMenu();
 		}
 	}
 	

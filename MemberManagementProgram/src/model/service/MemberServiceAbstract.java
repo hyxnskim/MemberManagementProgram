@@ -36,8 +36,9 @@ public abstract class MemberServiceAbstract {
 	 * -- 반환타입 : void
 	 * </pre>
 	 * @param dto 등록할 회원 객체
+	 * @return boolean 성공시 true, 실패시 false
 	 */
-	public abstract void addMember(Member dto);
+	public abstract boolean addMember(Member dto);
 	
 	/**
 	 * <pre>
@@ -48,8 +49,9 @@ public abstract class MemberServiceAbstract {
 	 * @param name 이름
 	 * @param mobile 휴대폰번호
 	 * @param email 이메일
+	 * @return boolean 성공시 true, 실패시 false
 	 */
-	public abstract void addMember(String memberId, String memberPw, String name, String mobile, String email);
+	public abstract boolean addMember(String memberId, String memberPw, String name, String mobile, String email);
 	
 	/**
 	 * <pre>

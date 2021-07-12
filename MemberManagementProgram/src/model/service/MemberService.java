@@ -107,12 +107,14 @@ public class MemberService extends MemberServiceAbstract{
 	 * <pre>
 	 * @param dto 등록 회원
 	 */
-	public void addMember(Member dto) {
+	public boolean addMember(Member dto) {
 		if(exist(dto.getMemberId()) == -1) {
 			list.add(dto);
+			return true;
 		}
 		else {
 			System.out.println("[오류] " + dto.getMemberId() + "는 중복된 아이디입니다");
+			return false;
 		}
 	}
 	
@@ -126,21 +128,23 @@ public class MemberService extends MemberServiceAbstract{
 	 * @param mobile 휴대폰
 	 * @param email 이메일
 	 */
-	public void addMember (String memberId, String memberPw, String name, String mobile, String email){
+	public boolean addMember (String memberId, String memberPw, String name, String mobile, String email){
 	
 		int idxMobile = existMobile(mobile);
 		int idxEmail = existEmail(email);
 		
 		if(idxMobile >= 0) {
 			System.out.println("[오류] " + mobile + "은 이미 등록된 휴대폰 번호입니다");
+			return false;
 		} else if(idxEmail >= 0) {
 			System.out.println("[오류] " + email + "은 이미 등록된 이메일 주소입니다");
+			return false;
 		} else {
 			GeneralMember dto = new GeneralMember(memberId, memberPw, name, mobile, email);
 			dto.setGrade("G");
 			dto.setEntryDate(Utility.getCurrentDate());
 			dto.setMileage(1000);
-			addMember(dto);
+			return addMember(dto);
 		}
 	}
 	
