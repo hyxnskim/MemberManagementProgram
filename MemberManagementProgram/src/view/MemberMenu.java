@@ -50,6 +50,7 @@ public class MemberMenu {
 				break;
 			case 4:
 				System.out.println("4. 비밀번호찾기");
+				findPwMenu();
 				break;
 			case 0:
 				System.out.println("프로그램을 종료합니다.");
@@ -230,7 +231,7 @@ public class MemberMenu {
 		}
 	}
 	
-	private void findIdMenu() {
+	public void findIdMenu() {
 		printTitle("아이디 찾기 메뉴");
 		
 		System.out.println("1. 휴대폰 번호로 찾기");
@@ -273,8 +274,45 @@ public class MemberMenu {
 			System.out.println("메뉴번호 오류");
 			break;
 		}
+	}
+	
+	public void findPwMenu() {
+		printTitle("비밀번호 찾기 메뉴");
 		
+		System.out.println("1. 휴대폰 번호로 찾기");
+		System.out.println("2. 이메일 주소로 찾기");
+		System.out.println("0. 이전 메뉴로 돌아가기");
+		System.out.println("-------------------------");
+		System.out.print("메뉴번호 입력 : ");
 		
+		int menuNo = sc.nextInt();
+		
+		switch(menuNo) {
+		case 1:
+			System.out.println("아이디 : ");
+			String memberId = sc.next();
+			
+			System.out.println("휴대폰 : ");
+			String mobile = sc.next();
+			
+			service.findPw(memberId, mobile);
+			return;
+		case 2:
+			System.out.println("아이디 : ");
+			memberId = sc.next();
+			
+			System.out.println("이메일 : ");
+			String email = sc.next();
+			
+			service.findPw(memberId, email);
+			return;
+		case 0:
+			System.out.println("메인 메뉴로 돌아갑니다.");
+			return;
+		default:
+			System.out.println("메뉴번호 오류");
+			break;
+		}
 	}
 	
 }
