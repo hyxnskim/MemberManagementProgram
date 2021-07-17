@@ -19,6 +19,11 @@ public class MemberMenu {
 	Scanner sc = new Scanner(System.in);
 	public MemberService service = new MemberService();
 	
+	/**
+	 * <pre>
+	 * 시작 메뉴 화면
+	 * </pre>
+	 */
 	public void mainMenu() {
 		
 		while(true) {
@@ -63,7 +68,9 @@ public class MemberMenu {
 	}
 	
 	/**
+	 * <pre>
 	 * 제목 출력
+	 * </pre>
 	 * @param title 제목
 	 */
 	public void printTitle(String title) {
@@ -74,7 +81,9 @@ public class MemberMenu {
 	}
 	
 	/**
-	 * 로그인
+	 * <pre>
+	 * 로그인 메뉴
+	 * </pre>
 	 */
 	public void loginMenu() {
 		printTitle("로그인");
@@ -103,7 +112,9 @@ public class MemberMenu {
 	}	
 	
 	/**
+	 * <pre>
 	 * 회원 전용 서비스 메인메뉴
+	 * </pre>
 	 */
 	private void serviceMainMenu(Member mem) {
 		printTitle("회원 메뉴");
@@ -151,6 +162,12 @@ public class MemberMenu {
 		}
 	}
 
+	/**
+	 * <pre>
+	 * 관리자 전용 메인 메뉴
+	 * </pre>
+	 * @param mem 관리자 멤버 객체
+	 */
 	private void adminMainMenu(Member mem) {
 		printTitle("관리자 메뉴");
 		
@@ -204,6 +221,11 @@ public class MemberMenu {
 		}
 	}
 	
+	/**
+	 * <pre>
+	 * 회원 가입 메뉴
+	 * </pre>
+	 */
 	public void addMemberMenu() {
 		printTitle("회원 가입 메뉴");
 		
@@ -231,6 +253,11 @@ public class MemberMenu {
 		}
 	}
 	
+	/**
+	 * <pre>
+	 * 아이디 찾기 메뉴
+	 * </pre>
+	 */
 	public void findIdMenu() {
 		printTitle("아이디 찾기 메뉴");
 		
@@ -276,6 +303,11 @@ public class MemberMenu {
 		}
 	}
 	
+	/**
+	 * <pre>
+	 * 비밀번호 찾기 메뉴
+	 * </pre>
+	 */
 	public void findPwMenu() {
 		printTitle("비밀번호 찾기 메뉴");
 		

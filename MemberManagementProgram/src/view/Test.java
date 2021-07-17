@@ -16,5 +16,7 @@ public class Test {
 	 * @param args 시작시 전달받은 String 타입 배열 정보
 	 */
 	public static void main(String[] args) {
+		MemberMenu menu = new MemberMenu();
+		menu.mainMenu();
 	}
 }
